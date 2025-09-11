@@ -1,0 +1,192 @@
+Domains of Interest:
+- Sports Analytics:
+    - Using data and statistics to analyze athletic performance and make predictions
+    - When i was young i had a poor understanding of sports in general. When I began playing in my friend's fantasy football league
+      I began to apply analytics and mathematics to my understanding of sporting. This make me much more interested in all manner of
+      sport, but especiall soccer, football, formula 1, baseball, and basketball. This analytical component as well as the strategic
+      component of managing each game and understading the context has been very enjoyable and grown to be a larger part of my life.
+- Political Modeling:
+    - Using data science to predict election outcomes and analyze political trends
+    - Both as a mechanism of understanding current events and simply applying my energy to something that is a topic of popular discussion
+      during elections I tend to be invested in both making my own models and tracking models of other experts predicting outcomes. It
+      is an enjoyable way to apply skills I learn in class to a real life setting with data widely available and a topic about which people
+      are enthusiastic to give feedback on.
+- Canoeing:
+    - Traveling via boat consisting of 3 main activities, paddling, portaging, and camping
+    - I began wilderness canoeing when I was 10 years old. I found it to be very mentally stimulating in a way which differed strongly
+      from most other activities. My mind was always active in navigating, moving the boat the way I wanted to, and planning. That combined
+      with the physical challenge made it feel like a fantastic opportunity to learn and grow quickly. I particularly enjoy the problem
+      of when to stop for the day, which almost feels like a PSET exercise from an algorithms class where there are a set of possible campsites
+      you can explore every day and at each one you have the choice to continue on looking for a better one or take what exists. All of that
+      makes me enjoy both the experience of the natural world and the mental challenge.
+- Hiking:
+    - Walking through nature and navigating as well as planning for where to stay and cook.
+    - I am interested in hiking because it allows me to disconnect from daily routines and immerse myself in the outdoors. I enjoy the sense 
+      of exploration, the challenge of navigating trails, and the satisfaction of reaching a destination after a long trek. Planning for meals 
+      and campsites adds a strategic element, and being surrounded by nature is both calming and invigorating. Hiking gives me a chance to reflect, 
+      exercise, and appreciate the beauty of the natural world.
+- Airplanes:
+    - Learning about aircraft design, aerodynamics, and the aviation industry
+- Stock Investing:
+    - Analyzing market trends and company financials to make investment decisions
+
+- Train Infrastructure:
+    - Understanding rail systems, their design, and impact on transportation
+- Urban Planning:
+    - Studying how cities develop and implementing solutions for sustainable growth
+- Maps and Cartography:
+    - Creating and analyzing geographic data representations and spatial relationships
+- History:
+    - Studying past events and their influence on modern society and culture
+
+Problems:
+
+Hiking:
+- Problem 1:
+    - Route planning without a car – When hiking in urban areas a major struggle is designing loops that involve a large amount of nature but are feasible 
+    to nvvigate or complete. I spend hours per hike confirming that i can walk to the destination (or make it there on transit), and then more importantly 
+    ensure i can get back in the case i am tired or injured. Existing mapping software is poor at taking this into account and creating strategies
+    that would allow me to do much more that a short loop
+    - Stakeholders:
+        - Wilderness Parks and their managers
+            - They are interested in attracting visitors to their parks, including those farther away, and in generating funding from parking or hiking fees.
+        - Conservationists
+            - They may be interested in maintaining fewer visitors to parks, as increased visitation to conserved areas can lead to more damage and other negative impacts.
+        - Outdoor Enthusiasts 
+            - They want to be able to travel and experience nature more easily, so they will be interested in the accuracy of this tool and the new opportunities it enables.
+    - Evidence:
+        - https://pmc.ncbi.nlm.nih.gov/articles/PMC5754026
+            - This study found that access to natural environments and green spaces is associated with increased physical activity and improved mental health.
+        - https://pmc.ncbi.nlm.nih.gov/articles/PMC7659949
+            - This article discusses how public transportation can facilitate access to parks and natural areas, but highlights barriers such as limited routes and schedules.
+        - https://www.fs.usda.gov/rm/pubs_journals/2022/rmrs_2022_campbell_m001.pdf
+            - This research examines how trail accessibility and connectivity influence outdoor recreation opportunities and user experiences in natural settings.
+        - https://www.reddit.com/r/boston/comments/1dt3ve9/hiking_accessible_via_public_transportation/
+            - This forum post highlights the need to determine the accessibility of different hiking routes around the Boston area without a car.
+        - https://www.reddit.com/r/CampingandHiking/comments/16hz7zc/how_do_you_get_into_this_hobby_without_a_car/
+            - This forum post highlights the difficulty of entering the hobby without a car. The solution is to provide routes with information about how to reach them without a car, but they do not add planning estimate information.
+        - https://www.reddit.com/r/hiking/comments/1dr50x8/what_is_your_favorite_app_to_use_for_hiking_route/
+            - This post highlights the breadth of tools available for hiking planning, but also influences later sources describing why they do not meet this need.
+        - https://mapy.com/en/zakladni?x=11.3817622&y=48.5563849&z=7
+            - This Mapy source solves the need for an offline version, as lack of internet is common, but it also highlights that you need to do a lot of work to load things into this source and are unable to do this as conveniently as with normal mapping navigation.
+        - https://mapy.com/en/zakladni?x=11.3817622&y=48.5563849&z=7
+            - AllTrails provides a lot of mapping features, and users highlight the safety features and unique design, but in using it, planning how to get to a location has been difficult.
+        - https://www.gaiagps.com
+            - This app provides GPS services and maps but limits the amount of reviews and social information. Users like those features and highlight that it is good for personal tracking over planning.
+        - https://www.reddit.com/r/hiking/comments/17jwkr7/hiking_in_the_early_morning_to_avoid_people/
+            - This forum post highlights that people want to know when others hike so they can avoid crowds, optimizing for weather and busyness, because others (especially those less experienced) can really slow down hiking trips.
+    - Features:
+        - Transit Accessibility Analysis: Calculates and displays how accessible each hiking route is by public transit, including the total distance from transit stops to the trailhead and the proportion of the route spent in natural areas.
+        - Dynamic Exit Route Planning: At various points along the hike, the system can suggest the best way to return to the starting point or nearest exit, helping users plan for fatigue or emergencies.
+        - Real-Time Constraint Integration: Incorporates real-time factors such as daylight hours, transit schedules, and current weather conditions to ensure that planned routes are feasible and safe.
+
+- Problem 2:
+    - Finding trails that feel like they are in nature. I did not choose to tackle this problem because it is highly subjective—what feels "natural" 
+    can vary a lot from person to person, and it would be difficult to create a solution that works for everyone. Additionally, there are already many 
+    resources and reviews online that help with this, so I felt my efforts would be better spent elsewhere.
+- Problem 3:
+    - Finding optimal hiking times for trails. I decided not to focus on this problem because it often depends on unpredictable factors like weather,
+     trail popularity, and personal schedules. There are also existing tools and apps that provide information about peak times and weather forecasts, 
+     so I felt this area was already well-covered.
+     
+Sports Analytics:
+- Problem 1:
+    - Watching the sports you are interested in is difficult because each sport has a complicated set of subscriptions and local blackouts
+    as someone who is interested in watchign a non-standard set of games and sports a lot of cost is spend on ensuring that i have access
+    to what i am interested in but there are many redundant subscriptions, therefore and money spent on those could be saved or put towards 
+    new products allowing me to watch things that are currently out of my budget. 
+    - Stakeholders:
+        - TV Channels/Streaming Providers
+            - They are interested in extracting the most value possible from their broadcast rights, which they have paid for. This includes local broadcasters, who want to ensure people in their area watch on their service, and national ones, who are interested in mass market appeal. They also need to recoup their investment, so if they own a small subset of games, they are inclined to maximize revenue from them.
+        - NFL/NBA/Sports Organizations (Organizations and Teams)
+            - They are interested in maximizing total sports revenue. So, they care about TV revenue, but also need to maintain other streams like in-person ticket sales, merchandise, and community relations (for stadiums and investment).
+        - Sports Consumers
+            - They are interested in paying the least possible for the greatest selection, and also value simplicity. They are also likely to prefer fewer ads, all else being equal.
+    - Evidence:
+        - https://www.reddit.com/r/NFLNoobs/comments/1mma16e/how_to_legally_watch_every_regular_season_nfl/
+            - This is a complicated guide for how to legally watch every NFL game. In the comments, it is considered very frustrating, but it is also commonly linked to.
+        - https://www.reddit.com/r/cordcutters/comments/ykbc09/best_way_to_be_able_to_watch_all_nba_games_even/
+            - This is a complicated guide for how to legally watch every NBA game. The users also complain about how to watch, and there are many alternate solutions, highlighting that alternatives are hard to design to include everything.
+        - https://www.reddit.com/r/Homeplate/comments/1l8qkjd/how_to_watch_all_mlb_games/ 
+            - This is a request for how to watch baseball in general, given that their son is interested. The comments frequently highlight frustration with blackouts and other issues, saying that they feel disliked by the sports companies.
+        - https://hbr.org/2024/02/pro-sports-has-a-piracy-problem
+            - This article by the Harvard Business Review highlights that piracy is a growing problem in sports media. This is similar to the issue raised in music, where the difficulty of access was largely correlated with the likelihood that people would participate in piracy.
+        - https://www.reddit.com/r/cordcutters/comments/wilefu/why_is_it_so_hard_to_stream_live_sports/
+            - This post asks how, as people move off traditional TV, they can continue to watch sports. For cost-conscious people without cable, it questions whether it is possible to still watch sports in general.
+        - https://finance.yahoo.com/news/its-more-complicated-than-ever-to-watch-sports--heres-why-173847581.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAABsu7UKn0ZZaTF_G_Yvu5y7oQmsF8SLy3peoXM7iLK2AJMa1qbLRH1HdfHSWJccgpymVn9ApR8Z8Vc8FG94u6cL6khOOMB3RFCwvNctUBUvTM0E97-NCnc5Gzioj2i4oHxhUn6beP9wCUwv6R4Nl6hunAfZfiVyXVH0QaGc8D-8w
+            - This Yahoo Finance article highlights the economic factors that make media distributors want to make it difficult to watch their products.
+        - https://www.reddit.com/r/NBATalk/comments/1huuee8/deleted_by_user/
+            - In this post, users highlight that the reason why ratings are decreasing in the NBA is that it is difficult to watch legally, and that the cost and complexity make the content no longer worth it.
+        - https://mitsloan.mit.edu/teaching-resources-library/espn-navigates-a-new-world-order
+            - This article discusses how ESPN's general positioning is designed to make it a one-stop shop for sports fans, highlighting the advantage of a single service being able to simplify the increased payment process for content.
+        - https://www.reddit.com/r/appletv/comments/176n0kp/deduping_and_optimizing_streaming_services/
+            - Here is a discussion about how to bundle and optimize streaming services. The user highlights an issue of some sports being included when they don't want them, showing this is a general issue for everyone.
+        - https://www.reddit.com/r/fuboTV/comments/1jhbfm1/best_package_to_watch_all_things_soccer_in_the_us/
+            - A final post highlights the international difficulty as well, which is an additional burden. With the growth of foreign sports in the United States, this is a greater problem, and again it includes recommendations of people combining sources to optimize.
+    - Features:
+        - Unified Sports Streaming Guide: Aggregates all available games across streaming services and TV channels, showing where each game can be watched and what subscriptions are required.
+        - Personalized Subscription Optimizer: Analyzes the user's sports interests and viewing habits to recommend the most cost-effective combination of subscriptions, highlighting redundant or unnecessary services.
+        - Blackout and Availability Checker: Alerts users to local blackout restrictions and suggests legal alternatives for watching games, including out-of-market options.
+        - Watchlist and Notification System: Lets users track specific teams, leagues, or games and receive notifications about broadcast times, channel changes, or new streaming availability.
+    - Problem 2:
+    - Knowing what games are important and coming up. I chose not to tackle this one because i was more interested in the former but i really
+    do face this one in real life. I tend to add games i am interested in to my calendar at the start of the season but it is hard to update 
+    that as the season goes on and different events gain or lose importance/intreague. I tend to do this more manually already and im not sure
+    how solvable or relevant this is to others. 
+- Problem 3: 
+    - Procuring standard cost (non resail) tickets to events. I chose to not tackle this problem becuase i feel like this is more general than
+    the sports world and solutions may involve automated ticket purchasign which are looked down upon in the industry
+
+Political Modeling:
+- Problem 1:
+    - Predicting election outcomes using data science – One of the main challenges is gathering reliable, up-to-date data from a variety of 
+    sources and building models that can accurately reflect the complex dynamics of elections. I enjoy applying skills I learn in class to 
+    real-life settings, and tracking both my own models and those of experts. This allows me to better understand current events and
+    participate in popular discussions during election seasons.
+    - Stakeholders:
+        - News Organizations
+            - News organizations want accurate models that update frequently so they can report on trends and provide timely updates.
+        - Political Parties/Candidates
+            - They want accurate and explainable modeling tools to monitor campaign progress, receive recommended interventions, and test strategies before implementation.
+        - General Public
+            - The general public values accurate models, but often does not benefit from knowing who is ahead unless the results are explained clearly.
+        - Polling Providers
+            - Polling providers may feel threatened when models reduce the perceived necessity of their polls; as more resources go into modeling, polling quality can decline, creating a negative cycle.
+    - Evidence:
+        - fivethirtyeight.com  
+            - This was once the premier repository for this type of statistical information. It was purchased by ABC and has largely closed, but remains very popular during election season.
+        - https://www.reddit.com/r/ElectionPolls/
+            - This entire forum is designed to allow people to track many polls and information sources simultaneously during elections.
+        - https://www.natesilver.net
+            - This website is an independent journalism subscription service for an individual who designs and comments on political models.
+        - https://www.nytimes.com/2024/10/13/opinion/polls-harris-trump.html
+            - This is a journalist commenting on the inaccuracy of polls and how predictions about elections (especially from the left's perspective) can be demotivating.
+        - https://www.reddit.com/r/ezraklein/comments/1extwrd/how_valid_are_democrats_concerns_over_polling/
+            - This forum discusses how different pollsters are increasingly forced to develop their own models, putting the polling industry at risk.
+        - https://polymarket.com
+            - Election prediction markets on this and other websites show not only high volume but also high visitation, indicating that people are interested in both making predictions and seeing what others have predicted.
+        - https://www.uc.edu/news/articles/2024/12/election-results-show-potential-of-prediction-markets.html
+            - This article shows how advanced market-based models are beginning to replace traditional methods for election tracking and modeling.
+        - https://apnews.com/projects/election-results-2024/?office=P
+            - The AP earns significant revenue through accurate, last-minute prediction models to issue calls on national races on election night. They charge large premiums for this data, on the order of hundreds of thousands of dollars.
+        - https://www.reddit.com/r/NeutralPolitics/comments/1giqib5/what_are_the_pros_and_cons_of_predictive_election/
+            - This forum post highlights the value of prediction markets and models, in addition to polling, for the general public.
+        - https://www.scientificamerican.com/article/why-election-polling-has-become-less-reliable/
+            - This article highlights that polling is becoming less accurate and that there is a growing need that is no longer being met by traditional election polling.
+        - https://www.pewresearch.org/methods/2023/04/19/how-public-polling-has-changed-in-the-21st-century/
+            - This article from a pollster highlights especially negative changes in polling and the current state of election prediction and modeling.
+    - Features:
+        - Real-Time Poll Aggregation: Continuously collects and combines polling data from multiple sources, weighting them by quality and recency to provide up-to-date predictions.
+        - Scenario Simulation: Allows users to adjust key variables (like turnout or demographic shifts) to see how different situations could affect election outcomes.
+        - Model Explainability Dashboard: Visualizes which factors are most influencing predictions and provides plain-language explanations to help users understand the results.
+- Problem 2:
+    - Accounting for sudden political events or shifts in public opinion. I did not choose to tackle this problem because these events 
+    are often unpredictable and can dramatically change the outcome of an election in ways that are difficult to model. Incorporating 
+    such uncertainty would require advanced techniques and access to real-time sentiment data, which is not always feasible.
+- Problem 3:
+    - Communicating model results to a general audience people often misunderstand predictions that are made on the news or in public
+    I decided not to focus on this problem because while it is important, 
+    there are already many experts and organizations who specialize in making political forecasts accessible and understandable. 
+    My interest is more in the technical modeling and analysis rather than public communication.
+
+
