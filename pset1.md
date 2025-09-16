@@ -207,14 +207,14 @@ startSession(employee: Employee, project: Project, description: String): (sessio
  requires: employee is not already in an active session
  effects: creates a new active Session with current time as startTime
 
-endSession(sessionId: String, endTime: DateTime?): (session: Session)
+endSession(sessionId: String, endTime: DateTime): (session: Session)
  requires: session is active and belongs to the employee
- effects: sets endTime (default: now), marks session as completed
+ effects: sets endTime, marks session as completed
 
 autoEndSessions(currentTime: DateTime, maxDuration: Duration)
  effects: for any active session exceeding maxDuration, sets endTime to currentTime, marks as auto-ended
 
-getSessions(employee: Employee, project: Project?): (sessions: Set<Session>)
+getSessions(employee: Employee, project: Project?): (sessions: Set(Session))
  effects: returns all sessions for the employee, optionally filtered by project
 
 **notes**
@@ -252,9 +252,6 @@ bookRoom(user: User, room: Room, startTime: DateTime, endTime: DateTime): (booki
 cancelBooking(bookingId: String, requester: User)
  requires: requester is the user who made the booking or an admin
  effects: removes the Booking
-
-getBookings(room: Room, date: Date): (bookings: Set<Booking>)
- effects: returns all Bookings for the room on the given date
 
 **notes**
 - Overlapping bookings are not allowed.
