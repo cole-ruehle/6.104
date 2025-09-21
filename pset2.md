@@ -30,68 +30,147 @@ One option for nonce generation is to use common dictionary words (in the style 
 
 ## Exercise 2: Synchronizations
 
-### Part A: [Subsection if needed]
+### Part A: Partial Matching
 
-**Question/Requirement:**
-[Your question or requirement here]
-
-**Answer:**
-[Your detailed answer here]
-
-### Part B: [Subsection if needed]
-
-**Question/Requirement:**
-[Your question or requirement here]
+**Question:**
+In the first sync (called generate), the Request.shortenUrl action in the when clause includes the shortUrlBase argument but not the targetUrl argument. In the second sync (called register) both appear. Why is this?
 
 **Answer:**
-[Your detailed answer here]
+This is teh case because the short string chosen is not connected to the target url. All that is required is that the short url base/domain cannot have repeat strings but there is no connection needed to generate the string from the target. The registration synchronization however is the one that links the 2 allowing one to be used as a proxy so it clearly must have both so that it can register them as linked. 
+
+### Part B: Omitting Names
+
+**Question:**
+The convention that allows names to be omitted when argument or result names are the same as their variable names is convenient and allows for a more succinct specification. Why isn't this convention used in every case?
+
+**Answer:**
+Because as is stated in the question ths is meant to shorten the spec while maintaining clarity. In cases whre the intention is not clear without specifying the arguments because operations will be done on them it is important to specify them. 
+
+### Part C: Inclusion of Request
+
+**Question:**
+Why is the request action included in the first two syncs but not the third one?
+
+**Answer:**
+The request symbolizes the user intent. It is an action that the user requests or is driven by a user request. THe setting of expiratioin has nothing to do with what a user wants and is just done automaticaly. 
+
+### Part D: Fixed Domain
+
+**Question:**
+Suppose the application did not support alternative domain names, and always used a fixed one such as "bit.ly." How would you change the synchronizations to implement this?
+
+**Answer:**
+If this was the case, I would not have to include the short base in teh generation of string because everythign would have the same shorturl. Other than that, however there would be no changes required because it is just a single case of the more complex implementation we already have. 
+
+### Part E: Adding a Sync
+
+**Question:**
+These synchronizations are not complete; in particular, they don't do anything when a resource expires. Write a sync for this case, using appropriate actions from the ExpiringResource and URLShortening concepts.
+
+**Answer:**
+sync cleanup
+when ExpiringResource.expire (resource: shortURL)
+then URL Shortening.delete(shortUrl)
 
 ---
 
-## Exercise 3: [Exercise Title]
 
-### Part A: [Subsection if needed]
+## Exercise 3: Extending the Design
 
-**Question/Requirement:**
-[Your question or requirement here]
+### Part A: New Concepts
 
-**Answer:**
-[Your detailed answer here]
-
-### Part B: [Subsection if needed]
-
-**Question/Requirement:**
-[Your question or requirement here]
+**Question:**
+Design a couple of additional concepts to realize this extension, and write them out in full (but including only the essential actions and state). It should not be necessary to make any changes to the existing concepts.
 
 **Answer:**
-[Your detailed answer here]
+**concept** URLAnalytics
 
----
+**purpose**
+Track and provide access statistics for short URLs, allowing users to monitor usage of their shortened links.
 
-## Exercise 4: [Exercise Title]
+**principle**
+Each short URL has associated analytics data that tracks the number of times it has been accessed. Users can view analytics only for URLs they have created.
 
-### Part A: [Subsection if needed]
+**state**
+A set of AnalyticsRecords with
+  • shortUrl: String
+  • owner: User
+  • accessCount: Integer
+  • creationDate: DateTime
 
-**Question/Requirement:**
-[Your question or requirement here]
+**actions**
+createAnalytics(shortUrl: String, owner: User): (analytics: AnalyticsRecord)
+  requires: no existing AnalyticsRecord for shortUrl
+  effects: creates a new AnalyticsRecord with accessCount = 0
+
+incrementAccess(shortUrl: String)
+  requires: an AnalyticsRecord exists for shortUrl
+  effects: increases accessCount by 1
+
+getAnalytics(shortUrl: String, requester: User): (accessCount: Integer)
+  requires: AnalyticsRecord exists for shortUrl and requester is the owner
+  effects: returns the current accessCount for the shortUrl
+
+### Part B: Essential Synchronizations
+
+**Question:**
+Specify three essential synchronizations with your new concepts: one that happens when shortenings are created; one when shortenings are translated to targets; and one when a user examines analytics.
 
 **Answer:**
-[Your detailed answer here]
 
-### Part B: [Subsection if needed]
+sync createAnalytics
+when URLShortening.register (shortUrl, owner)
+then URLAnalytics.createAnalytics (shortUrl, owner)
 
-**Question/Requirement:**
-[Your question or requirement here]
+sync recordAccess
+when URLShortening.lookup (shortUrl)
+then URLAnalytics.incrementAccess (shortUrl)
+
+sync viewAnalytics
+when Request.getAnalytics (shortUrl, requester)
+then URLAnalytics.getAnalytics (shortUrl, requester)
+
+### Part C: Feature Assessment
+
+**Question:**
+As a way to assess the modularity of your solution, consider each of the following feature requests, to be included along with analytics. For each one, outline how it might be realized (eg, by changing or adding a concept or a sync), or argue that the feature would be undesirable and should not be included:
+
+1. Allowing users to choose their own short URLs
+2. Using the "word as nonce" strategy to generate more memorable short URLs
+3. Including the target URL in analytics, so that lookups of different short URLs can be grouped together when they refer to the same target URL
+4. Generate short URLs that are not easily guessed
+5. Supporting reporting of analytics to creators of short URLs who have not registered as user
 
 **Answer:**
-[Your detailed answer here]
+1. Modify the NonceGeneration concept to accept user-provided strings as an optional parameter. Add validation to ensure the chosen string isn't already used.
+Implementation:
+Add generateWithCustom(shortUrl: String, context: String) action to NonceGeneration
+Add sync: when Request.shortenUrlWithCustom(shortUrl, targetUrl) then NonceGeneration.generateWithCustom(shortUrl, context)
+Good modularity - minimal changes to existing concepts seems like something that users would like.
 
----
+2. Create a new concept WordNonceGeneration that extends NonceGeneration with a dictionary of words.
+Implementation:
+New concept with generateWord(context: String): (word: String) action
+Replace NonceGeneration.generate with WordNonceGeneration.generateWord in syncs
+Assessment: Excellent modularity - completely separate concept, easy to swap
 
-## Additional Notes
+3. Extend URLAnalytics state to include targetUrl field and add grouping actions.
+Implementation:
+Add targetUrl: String to AnalyticsRecords state
+Add getAnalyticsByTarget(targetUrl: String, requester: User) action
+Assessment: Good modularity - only changes URLAnalytics concept. Seems like something that users would like it is already in many products. 
 
-[Any additional thoughts, reflections, or notes about the problem set]
+4. Modify NonceGeneration to use cryptographically secure random generation instead of sequential.
+Implementation:
+Change the generation algorithm in NonceGeneration.generate
+Assessment: Excellent modularity - no interface changes, just internal implementation. Im not sure this is valuable though it really just makes it harder to navigate to the site. The goal of the product is to make it easy to share links not make those links secure it is the responsibility of the webiste being navigated to to make sure getting there cannot cause a problem on its own. 
 
----
+5. How to realize: This is undesirable and should not be included.
+Why undesirable:
+Security risk: No way to verify ownership without user registration
+Privacy concerns: Anyone could claim to be the creator
+Data integrity: No reliable way to track who created what
+Abuse potential: Users could claim analytics for URLs they didn't create
+Assessment: This feature would break the security model and should be rejected.
 
-*Problem Set 2 completed on [Date]*
+*Problem Set 2 completed on 9/21*
