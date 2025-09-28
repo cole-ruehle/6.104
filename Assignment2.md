@@ -190,19 +190,22 @@ The TransitRoutePlanner serves as the core planning engine, handling the complex
 ## UI Sketches
 
 ### Sketch 1: Main Search Screen
-![Main Search Screen](images/Screenshot%202025-09-28%20at%202.53.32%20PM.png)
+![Main Search Screen](images/screen1.png)
 *Initial route planning interface with search functionality and time constraint options. This screen demonstrates the entry point for the TransitRoutePlanner concept.*
 
 ### Sketch 2: Route Results Screen
-![Route Results Screen](images/Screenshot%202025-09-28%20at%202.53.40%20PM.png)
+![Route Results Screen](images/screen2.png)
+
 *Available hiking routes with transit options, showing route summaries and selection interface. This screen demonstrates the TransitRoutePlanner concept by presenting optimized route options.*
 
 ### Sketch 3: Route Detail Screen
-![Route Detail Screen](images/Screenshot%202025-09-28%20at%202.53.54%20PM.png)
+![Route Detail Screen](images/screen3.png)
+
 *Detailed view of a specific route showing the "Cambridge - Middlesex 5hr Route" with pictures, map view, step-by-step directions, and similar route options. This screen demonstrates the TransitRoutePlanner concept by showing the complete journey breakdown and alternative routes.*
 
 ### Sketch 4: Active Hike Monitoring Screen  
-![Active Hike Screen](images/Screenshot%202025-09-28%20at%202.54.04%20PM.png)
+![Active Hike Screen](images/screen4.png)
+
 *Real-time monitoring interface during an active hike, showing current location on map, next directions, and emergency options. This screen demonstrates the DynamicExitPlanner concept with its emergency route modification capabilities and the ConstraintMonitor integration for real-time safety updates.*
 
 ## User Journey
